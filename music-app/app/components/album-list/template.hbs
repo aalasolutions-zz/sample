@@ -1,0 +1,24 @@
+<div class="col-12">
+  <table class="table">
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th class="text-center">Actions</th>
+    </thead>
+
+    <tbody>
+      {{#each model as |album|}}
+        <tr>
+          <td>{{album.id}}</td>
+          <td>{{album.name}}</td>
+          <td>{{album.songs.length}}</td>
+          <td class="text-center">
+            <LinkTo class="btn btn-info" @route="dashboard.albums.form" @model={{album.id}} >Edit</LinkTo>
+            <button class="btn btn-danger" {{action "delete" album}}>Delete</button>
+            {{!-- <button class="btn btn-info">Edit</button> --}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

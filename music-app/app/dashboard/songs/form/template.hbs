@@ -1,0 +1,76 @@
+<div class="row bg-light p-3">
+  <div class="col-12">
+    <h4>Edit Form</h4>
+    <hr>
+
+    <form>
+      <div class="form-row">
+        <div class="col-md-3">
+          <label for="title">Song Title:</label>
+          <Input
+            @id="title"
+            @class="form-control"
+            @type="text"
+            @value={{model.title}}
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="length">Song Length: (In Seconds)</label>
+          <Input
+            @id="length"
+            @class="form-control"
+            @type="text"
+            @value={{model.length}}
+          />
+        </div>
+
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-3">
+          <label for="genre">Genre:</label>
+          <PowerSelect
+            @options={{genre}}
+            @selected={{model.genreId}}
+            @searchField="title"
+            @placeholder="Select Genre"
+            @onChange={{action "selectGenre"}} as |option|>
+            {{option.title}}
+          </PowerSelect>
+        </div>
+        <div class="col-md-3">
+          <label for="genre">Artists:</label>
+          <PowerSelectMultiple
+            @options={{artists}}
+            @selected={{model.artists}}
+            @placeholder="Select Artists..."
+            @onChange={{fn (mut model.artists)}} as |artist|>
+            {{artist.name}}
+          </PowerSelectMultiple>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-3">
+          <label for="genre">Album:</label>
+          <PowerSelect
+            @options={{albums}}
+            @selected={{model.albumId}}
+            @searchField="name"
+            @placeholder="Select Album"
+            @onChange={{action "selectAlbum"}} as |option|>
+            {{option.name}}
+          </PowerSelect>
+        </div>
+
+      </div>
+
+      <div class="form-row mt-3">
+        <div class="col-12">
+          <button class="btn btn-success" type="submit" {{action "save"}}>Submit</button>
+          <LinkTo class="btn btn-danger" @route="dashboard.songs">Cancel</LinkTo>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-12">
+    <div class="row mb-3">
+
+      <div class="col-md-6">
+        <h4>Filters:</h4>
+      </div>
+
+      <div class="col-md-6 text-right">
+        <LinkTo class="btn btn-success" @route="dashboard.songs.form" @model="new"> + Add</LinkTo>
+      </div>
+
+    </div>
+  </div>
+  <AlbumList @model={{model}} @delete={{action "delete"}} />
+</div>

@@ -1,1 +1,26 @@
-{{yield}}
+<div class="col-12">
+
+  <table class="table">
+    <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Length</th>
+    <th class="text-center">Actions</th>
+    </thead>
+
+    <tbody>
+    {{#each model as |song|}}
+      <tr>
+        <td>{{song.id}}</td>
+        <td>{{song.title}}</td>
+        <td>{{song.length}}</td>
+        <td class="text-center">
+          <LinkTo class="btn btn-info" @route="dashboard.songs.form" @model={{song.id}}>Edit</LinkTo>
+          <button class="btn btn-danger" {{action "delete" song}}>Delete</button>
+          {{!-- <button class="btn btn-info">Edit</button> --}}
+        </td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+</div>

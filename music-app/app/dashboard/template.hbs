@@ -1,0 +1,29 @@
+<BsNavbar class="bg-dark fixed-top" as |navbar|>
+  <div class="navbar-header">
+    <navbar.toggle/>
+    <LinkTo class="navbar-brand text-light" @route="dashboard">Music App</LinkTo>
+  </div>
+  <navbar.content>
+    <navbar.nav as |nav|>
+      <nav.item>
+        <nav.linkTo class="text-light" @route="dashboard.songs">Songs</nav.linkTo>
+      </nav.item>
+      <nav.item>
+        <nav.linkTo class="text-light" @route="dashboard.albums">Albums</nav.linkTo>
+      </nav.item>
+      <nav.item>
+        <nav.linkTo class="text-light" @route="dashboard.songs">Artists</nav.linkTo>
+      </nav.item>
+      <nav.item>
+        <nav.linkTo class="text-light" @route="dashboard.songs">Genre</nav.linkTo>
+      </nav.item>
+    </navbar.nav>
+  </navbar.content>
+</BsNavbar>
+
+<div class="row p-5 m-5">
+  <div class="col-12">
+    {{outlet}}
+  </div>
+</div>
+
