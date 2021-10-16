@@ -18,5 +18,8 @@ export default Controller.extend({
     delete(record) {
       record.destroyRecord();
     },
+
+
+
   }
 });

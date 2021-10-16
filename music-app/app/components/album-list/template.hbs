@@ -13,7 +13,7 @@
           <td>{{album.name}}</td>
           <td>{{album.songs.length}}</td>
           <td class="text-center">
-            <LinkTo class="btn btn-info" @route="dashboard.albums.form" @model={{album.id}} >Edit</LinkTo>
+            <LinkTo class="btn btn-info" @route="dashboard.albums.form" @model={{album}} >Edit</LinkTo>
             <button class="btn btn-danger" {{action "delete" album}}>Delete</button>
             {{!-- <button class="btn btn-info">Edit</button> --}}
           </td>

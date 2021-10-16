@@ -28,14 +28,14 @@ export default Route.extend({
       });
     },
 
+    willTransition() {
+      const {model} = this.controller;
+      if (model.isNew) model.unloadRecord();
+      if (model.hasDirtyAttributes) model.rollbackAttributes();
+      if (typeof model.rollbackRelationships !== "undefined") model.rollbackRelationships();
+    }
   },
 
-  willTransition() {
-    const {model} = this.controller;
-    console.log('hello');
-    if (model.isNew) model.unloadRecord();
-    if (model.hasDirtyAttributes) model.rollbackAttributes();
-    if (typeof model.rollbackRelationships !== "undefined") model.rollbackRelationships();
-  }
+
 
 });
